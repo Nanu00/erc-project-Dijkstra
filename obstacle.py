@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 ''' start transplant'''
 
-class Obsctacle:
-    '''Obsctacle
+class Obstacle:
+    '''Obstacle
     Attributes:
         I. boundary points
         II. check if line segment passes through obsctacle
@@ -26,7 +26,7 @@ class Obsctacle:
         l = LineString([p1, p2])
         return self.pol.intersects(l)
 
-class EndArea(Obsctacle):
+class EndArea(Obstacle):
     """Same as the Obstacle class, except plots itself in green
     """
     def get_plottable(self):
