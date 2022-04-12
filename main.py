@@ -11,7 +11,7 @@ end = EndArea((P(700, 700), P(750, 700), P(750, 750), P(700, 750)))
 
 g = Graph(P(500, 500), obs, end, (P(0, 0), P(1000, 1000)))
 
-g.sample(100)
+g.sample(200)
 
 plottables = g.get_plottable()
 plottables += [o.get_plottable() for o in g.obstacles]
