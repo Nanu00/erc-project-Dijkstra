@@ -29,7 +29,7 @@ class Graph(nx.Graph):
 
             outside = [o.pol.contains(new_point) for o in self.obstacles]
             if any(outside):
-                break
+                continue
 
             self.add_node(new_point)
 
