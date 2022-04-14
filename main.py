@@ -13,11 +13,13 @@ g = Graph(P(500, 500), obs, end, (P(0, 0), P(1000, 1000)))
 
 g.sample(200)
 
-plottables = g.get_plottable()
-plottables += [o.get_plottable() for o in g.obstacles]
-plottables.append(end.get_plottable())
+plottables_statics = [o.get_plottable() for o in g.obstacles]
+plottables_statics.append(end.get_plottable())
+
+plottables_graph = g.get_plottable()
 
 plt.ion()
-[plt.plot(*p, marker='.', markersize=1, linewidth=0.1) for p in plottables]
+[plt.plot(*p, linewidth=1) for p in plottables_statics]
+[plt.plot(*p, marker='.', markersize=1, linewidth=0.1) for p in plottables_graph]
 plt.show()
 plt.pause(100)
