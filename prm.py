@@ -11,6 +11,7 @@ class Graph(nx.Graph):
         self.obstacles = obstacles
         self.end_zone = end_zone
         self.boundaries = boundaries
+        self.start_point = start_point
 
         self.dist_limit = abs(min([self.boundaries[0].x - self.boundaries[1].x, self.boundaries[0].y - self.boundaries[1].y]))/5
 
