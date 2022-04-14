@@ -45,6 +45,8 @@ class Graph(nx.Graph):
                     continue
 
                 self.add_edge(node, new_point)
+            print(f"\rPoints Sampled: {i}", end="")
+        print()
 
     def get_plottable(self):
         plottables = []
