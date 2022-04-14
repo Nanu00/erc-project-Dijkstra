@@ -17,7 +17,7 @@ end = EndArea((P(700, 700), P(750, 700), P(750, 750), P(700, 750)))
 
 g = Graph(P(1, 1), obs, end, (P(0, 0), P(1000, 1000)))
 
-g.sample(500)
+g.sample(300)
 
 plottables_statics = [o.get_plottable() for o in g.obstacles]
 plottables_statics.append(end.get_plottable())
@@ -28,7 +28,7 @@ plt.ion()
 [plt.plot(*p, linewidth=1) for p in plottables_statics]
 [plt.plot(*p, marker='.', markersize=1, linewidth=0.1) for p in plottables_graph]
 plt.show()
-plt.pause(5)
+plt.pause(0.1)
 
 a = AStar(g)
 astar_path = a.pathfind()

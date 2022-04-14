@@ -11,13 +11,12 @@ class AStar():
 
     @staticmethod
     def trace_path(came_from: dict, pt: Point):
-        parent = came_from[pt]
-        if parent is None:
-            return [pt]
-        else:
-            path = AStar.trace_path(came_from, parent)
-            path.append(pt)
-            return path
+        current = pt
+        path = []
+        while current:
+            path.append(current)
+            current = came_from[current]
+        return path
 
     def pathfind(self):
         start = self.graph.start_point

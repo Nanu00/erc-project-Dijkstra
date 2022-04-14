@@ -28,8 +28,7 @@ class Graph(nx.Graph):
             else:
                 new_point = Point.random_with_boundaries(self.boundaries)
 
-            outside = [o.pol.contains(new_point) for o in self.obstacles]
-            if any(outside):
+            if any(o.pol.contains(new_point) for o in self.obstacles):
                 continue
 
             self.add_node(new_point)
@@ -37,14 +36,15 @@ class Graph(nx.Graph):
             i+=1
 
             for node in self.nodes:
-                intersections = [o.checkint(node, new_point) for o in self.obstacles]
-
-                if any(intersections):
-                    continue
                 if new_point.distance(node) > self.dist_limit:
                     continue
 
-                self.add_edge(node, new_point)
+                for o in self.obstacles:
+                    if o.checkint(node, new_point):
+                        break
+                else:
+                    self.add_edge(node, new_point)
+
             print(f"\rPoints Sampled: {i}", end="")
         print()
 
